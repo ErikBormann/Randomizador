@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html>
+<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+<head>
+<style>
+* {
+background: #A7fff6;
+box-sizing:border-box;
+padding:0;
+margin:0;
+font-family: 'Lato', sans-serif;
+}
+
+#container {
+width:100%;
+}
+span#namezzz{
+float:left;
+background: #A4F9C8;
+height:45px;
+padding:0;
+}
+ul {
+	text-align:center;
+	background: #A4F9C8;
+	margin:0;
+	height:45px;
+	padding:0;
+	list-style-type:none;
+	text-decoration: none;
+	cursor: default;
+}
+
+li {
+	display:inline;
+	background: #A4F9C8;
+	text-align: center;
+	height:45px;
+	padding: 12px 10px 14px 10px;
+	line-height:45px;
+	font-size: 15px;
+	margin:0;
+	width:15px;
+}
+/*li:hover {
+	background: #5C6F68;
+	}*/
+a {
+text-decoration: none;
+background: #A4F9C8;
+color:black;
+padding: 12px 10px 14px 10px;
+}
+a:hover {
+background: #5C6F68;
+
+}
+#generated {
+display:block;
+margin:0 auto;
+text-align:center;
+font-size:48px;
+width:100%;
+background: #A7fff6;
+margin-top:200px;
+position:static;
+color:#A7FFF6;
+}
+button {
+display:block;
+position:static;
+margin:50px auto 50px auto;
+padding:10px 25px;
+font-size:24px;
+background:#A4F9C8;
+border:none;
+border-radius: 20px
+
+}
+button:hover {
+background:#95d9c3;
+}
+button:focus {
+outline:none;
+}
+</style>
+</head>
+<body>
+<div id="container">
+<ul>
+	<span id="namezzz"><li>Randomizador</li>
+	<!---<li id="homez"><a href="erikbormann.github.io">Home</a></li>-->
+	<span>
+</ul>
+
+<div id="generated">.</div>
+<button type="button" onclick="generateName()">Gerar</button>
+</div>
+<script>
+
+var per = ["homem", "mulher", "sereia", "elfo(a)", "orc", "mago(a)", "vampiro(a)", "zumbi", "alienígena", "fantasma","animal (qualquer)", "sapo", "rato", "porco", "cachorro", "gato", "pato", "pinguim", "peixe", "baleia","tubarão", "girafa", "elefante", "preguiça", "panda", "urso", "coala", "cavalo","joaninha", "aranha", "barata","fruta (qualquer)", "morango", "uva", "limão", "abacaxi", "pera", "maçã", "banana", "árvore", "flor", "planta","objeto (qualquer)", "garrafa", "lápis", "meia", "almofada", "papel", "panela", "guarda-chuva", "caneca","pizza", "batata", "sorvete"];
+var pro = ["astronauta", "detetive", "nerd", "professor(a)", "policial", "garçom", "bruxo(a)", "patricinha / playboy", "hippie", "artista", "mecânico", "rockeiro(a)", "cantor(a)", "desaprofissionado(a)", "soldado", "médico(a)", "enfermeiro(a)", "dançarino(a)", "hacker", "socialite", "empresário(a)", "atleta", "skatista", "jogador(a) de futebol", "camponês(a)", "padre/freira", "guerreiro", "ninja"];
+var att = ["bebê", "criança", "jovem", "adulto", "velho(a)", "alto(a)", "baixo(a)", "magro(a)", "gordo(a)", "cabeludo(a)", "careca", "bonito(a)", "feio(a)", "forte", "fraco(a)", "narigudo(a)", "orelhudo(a)", "dentuço(a)", "de olhos pequenos", "de olhos grandes", "vesgo", "japonês(a)", "negro(a)", "branco(a)", "indígena"];
+var obj = ["chapéu", "boné", "touca", "capacete", "viseira", "panela", "boina", "coroa", "chifres", "cocar", "turbante", "faixa", "bandana", "chapéu de palha", "máscara", "óculos escuros", "óculos de grau", "monóculo", "sardas", "snorkel", "fone de ouvido", "chupeta", "cigarro", "piercing", "tatuagem", "cicatriz", "pintura", "barba", "medalhas", "cachecol", "colar", "correntes", "gola alta", "coleira", "gravata", "mochila", "paraquedas", "mochilão", "case de violão", "guarda-chuva", "caneca", "violão", "sacola", "pijama", "toalha", "kilt", "luvas", "terno", "terno e gravata", "macacão", "regata", "relógio", "cajado", "varinha", "bengala", "asas", "espada", "arco e flecha", "escudo", "sorvete", "galochas", "pantufas", "chinelo", "bota", "tênis", "sandália"];
+var mov = ["dançando", "voando", "lendo", "andando", "correndo", "pulando", "dormindo", "tocando violão", "bebendo", "comendo", "limpando", "pintando", "meditando", "fazendo poção", "investigando", "pensando", "trabalhando", "caindo", "nadando", "tropeçando", "digitando", "jogando videogame", "ao telefone", "tirando caca do nariz", "parado", "acordando", "treinando", "escrevendo/desenhando", "em pé", "deitado", "sentado", "agachado", "cozinhando", "tomando sorvete"];
+var exp = ["alegre", "apaixonado(a)", "apreensivo(a)", "assustado(a)", "cansado(a)", "chorando", "com nojo", "confiante", "desgostoso(a)", "desolado(a)", "enlouquecido(a)", "entediado(a)", "envergonhado(a)", "gritando", "irritado(a)", "malvado(a)", "nervoso(a)", "normal", "pokerface", "preocupado", "rindo", "sério(a)", "sonhador(a)", "surpreso(a)", "tímido(a)", "travesso(a)", "triste", "satisfeito(a)"];
+
+function generateName() {
+	document.getElementById("generated").style.color = "black";
+
+var per_num = Math.floor(Math.random() * per.length);
+var pro_num = Math.floor(Math.random() * pro.length);
+var att_num = Math.floor(Math.random() * att.length);
+var obj_num = Math.floor(Math.random() * obj.length);
+var mov_num = Math.floor(Math.random() * mov.length);
+var exp_num = Math.floor(Math.random() * exp.length);
+
+var textmsg = "Seu personagem é um(a)"
+	+ " "
+	+ per[per_num]
+	+ " "
+	+ pro[pro_num]
+	+ ", "
+       	+ att[att_num]
+	+ ", de "
+       	+ obj[obj_num]
+	+ ", "
+       	+ mov[mov_num]
+	+ " e "
+	+ exp[exp_num]
+	+ ".";
+
+
+
+
+  document.getElementById("generated").innerHTML = textmsg;
+}
+</script>
+</body>
+</html>
